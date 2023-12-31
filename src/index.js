@@ -4,12 +4,16 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import config from './config';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
+    <GoogleOAuthProvider clientId={config.clientID}>
     <App />
-  </React.StrictMode>
+    </GoogleOAuthProvider>
+  </React.StrictMode>,
+  document.getElementById('root') 
 );
 
 // If you want to start measuring performance in your app, pass a function

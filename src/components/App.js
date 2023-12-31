@@ -1,12 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Login from './login';
 
 function App() {
   return (
-    <div className="App">
-      //TODO: Add routes here
-      <h1>Hello World</h1>
+    <Router basename={process.env.PUBLIC_URL}>
+    <div>
+      <Routes>
+        <Route path="/" element={<Login/>} />
+      </Routes>
     </div>
+  </Router>
   );
 }
 
