@@ -1,5 +1,5 @@
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import React,{useState} from "react";
+import React from "react";
 import config from "../config";
 import { useNavigate } from "react-router-dom";
 import imagen from "../images/ciudad.jpg"
@@ -45,6 +45,7 @@ function Login() {
                                 <GoogleOAuthProvider clientId={config.clientID}>
                                 <GoogleLogin onSuccess={onSuccess} 
                                 onError={onEror}
+                                useOneTap
                                 />
                                 </GoogleOAuthProvider>
                             </CardText>
