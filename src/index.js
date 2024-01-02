@@ -9,9 +9,7 @@ import config from './config';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GoogleOAuthProvider clientId={config.clientID}>
     <App />
-    </GoogleOAuthProvider>
   </React.StrictMode>,
   document.getElementById('root') 
 );
