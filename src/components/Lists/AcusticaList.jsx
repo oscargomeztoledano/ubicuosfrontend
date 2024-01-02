@@ -5,7 +5,7 @@ import { getAllContaminacionAcustica } from "../../utils/apicalls";
 import Header from "../Header";
 
 export default function AcusticaList() {
-    const [acusticas, setAcusticas] = useState([]);
+    const [acusticas, setAcusticas] = useState(null);
     
     const getacusticas=()=>{
         getAllContaminacionAcustica().then((acusticas) => {
@@ -17,8 +17,25 @@ export default function AcusticaList() {
        getacusticas();
     }, []);
 
-    
-//TODO crear la pagina en si en el return
-//Con lo que esta hecho coge la informacion de la api y lo guarda en "contenedores"
-//lo he hecho con hooks de estado y hooks de efecto
-}
+    return acusticas === null?(
+        <div>
+        <Row>
+          <Col>
+            <Header />
+          </Col>
+        </Row>
+        <Row>
+          <h1 class="text-black">Loading...</h1>
+        </Row>
+      </div>
+    ):(
+        <div>
+            <Row>
+                <Col>
+                <Header />
+                </Col>
+            </Row>
+
+        </div>
+    );
+    }

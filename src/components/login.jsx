@@ -21,6 +21,18 @@ import {
 
 function Login() {
     //TODO: implementar la funcionalidad de login y redireccionar a la pagina principal
+    const navigate = useNavigate();
+    const onSuccess=(res)=>{
+        var email=jwtDecode(res.credential).email;
+        var name=jwtDecode(res.credential).name;
+        sessionStorage.setItem('email', email);
+        sessionStorage.setItem('name', name);
+        navigate("/home");
+    }
+    const onEror=()=>{
+        console.log("error");
+    }
+
     return (
         <div style={{backgroundColor: 'black', height: '100vh', width: '100vw', overflow:'hidden'}}>
             <Container style={{height:'100%'}}>
@@ -31,8 +43,8 @@ function Login() {
                             <CardText>Para poder continuar, por favor inicia sesión con tu cuenta de Google</CardText>
                             <CardText>
                                 <GoogleOAuthProvider clientId={config.clientID}>
-                                <GoogleLogin onSuccess={(credentialResponse) => console.log(credentialResponse)} 
-                                onError={()=> {console.log("error de log")}}
+                                <GoogleLogin onSuccess={onSuccess} 
+                                onError={onEror}
                                 />
                                 </GoogleOAuthProvider>
                             </CardText>
