@@ -1,8 +1,9 @@
 import React,{useState,useEffect} from "react";
 import { Row, Col, Container, Badge, CardTitle } from "reactstrap";
 import { getAllBicicletasDisponibles } from "../../utils/apicalls";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import Header from "../Header";
+import Header from "../blog/Header"
 
 export default function FotovoltaicasList() {
     const [dispoBicis, setDispobicis] = useState([]);
@@ -17,8 +18,28 @@ export default function FotovoltaicasList() {
        getDispoBicis();
     }, []);
 
-    
-//TODO crear la pagina en si en el return
-//Con lo que esta hecho coge la informacion de la api y lo guarda en "contenedores"
-//lo he hecho con hooks de estado y hooks de efecto
+    const defaultTheme = createTheme();
+
+    return dispoBicis === null?(
+        <ThemeProvider theme={defaultTheme}>
+         <Container maxWidth="lg">
+         <Header/>
+         <main style={{ display: 'flex', justifyContent: 'center', height: '100vh' }}>
+           cargando informacion, por favor espere
+         </main>
+         </Container>
+ 
+         </ThemeProvider>
+         
+     ):(//TODO hacer graficas
+       <ThemeProvider theme={defaultTheme}>
+       <Container maxWidth="lg">
+       <Header/>
+       <main>
+         <h1>INFORMACION SOBRE...</h1> 
+       </main>
+       </Container>
+ 
+       </ThemeProvider>
+     );
 }

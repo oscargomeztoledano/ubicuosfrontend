@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from "react";
 import { Row, Col, Container, Badge, CardTitle } from "reactstrap";
 import { getAllContaminacionAcustica } from "../../utils/apicalls";
-import Header from "../Header";
+import Header from "../blog/Header"
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 export default function AcusticaList() {
     const [acusticas, setAcusticas] = useState(null);
@@ -17,29 +18,27 @@ export default function AcusticaList() {
     useEffect(() => {
        getacusticas();
     }, []);
-
+    const defaultTheme = createTheme();
     return acusticas === null?(
-        <div>
-        <Row>
-          <Col>
-            <Header />
-          </Col>
-        </Row>
-        <Row>
-          <h1 class="text-black">Loading...</h1>
-        </Row>
-      </div>
-    ):(
-        <div>
-            <Row>
-                <Col>
-                <Header />
-                </Col>
-            </Row>
-            <Row>
-              <h1>hola de prueba</h1>
-            </Row>
+       <ThemeProvider theme={defaultTheme}>
+        <Container maxWidth="lg">
+        <Header/>
+        <main style={{ display: 'flex', justifyContent: 'center', height: '100vh' }}>
+          cargando informacion, por favor espere
+        </main>
+        </Container>
+        </ThemeProvider>
+        
+    ):(//TODO hacer graficas
+      <ThemeProvider theme={defaultTheme}>
+      <Container maxWidth="lg">
+      <Header/>
+      <main>
+        <h1>INFORMACION SOBRE LA Contaminacion Acustica</h1> 
 
-        </div>
+      </main>
+      </Container>
+      
+      </ThemeProvider>
     );
     }
