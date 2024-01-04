@@ -60,7 +60,6 @@ export default function AcusticaList() {
       return Array.from(nameNMTMap.entries()).map(([name, maxNMT]) => ({ name, maxNMT }));
     };
 
-    const maxNMTByName = getMaxNMTByName();
 
   return acusticas === null?(
        <ThemeProvider theme={defaultTheme}>
@@ -77,23 +76,28 @@ export default function AcusticaList() {
       <Container maxWidth="lg">
       <Header/>
       <main>
-        <h1>Contaminacion Acustica</h1> 
-
+        <h1>Contaminacion Acustica</h1>
         {/** Gráfico de linea temporal */}
-        <Bar
-            data={{
-              labels: maxNMTByName.map((item)=>item.name),
-              datasets: [
-                {
-                  label: 'NMT (Nivel de Ruido Máximo)',
-                  data: maxNMTByName.map((item)=>item.maxNMT),  
-                  backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                  borderColor: 'rgba(255, 99, 132, 1)',
-                  borderWidth: 1,
-                },
-              ],
-            }}
-          />
+        
+        {(() => {
+          const maxNMTByName = getMaxNMTByName();
+          return (
+            <Bar
+              data={{
+                labels: maxNMTByName.map((item)=>item.name),
+                datasets: [
+                  {
+                    label: 'NMT (Nivel de Ruido Máximo)',
+                    data: maxNMTByName.map((item)=>item.maxNMT),  
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                  },
+                ],
+              }}
+            />
+          );
+        })()}
 
       </main>
       </Container>
