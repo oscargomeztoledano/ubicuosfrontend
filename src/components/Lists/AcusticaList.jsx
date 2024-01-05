@@ -4,6 +4,10 @@ import { getAllContaminacionAcustica } from "../../utils/apicalls";
 import Header from "../blog/Header"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Bar } from 'react-chartjs-2';
+import Footer from '../blog/Footer';
+import Sidebar from "../blog/Sidebar";
+import Grid from '@mui/material/Grid';
+
 
 import{
   Chart as ChartJS,
@@ -77,7 +81,7 @@ export default function AcusticaList() {
       <Header/>
       <main>
         <h1>Contaminacion Acustica</h1>
-        {/** Gráfico de linea temporal */}
+        <p>En el siguiente grafico de barras podemos observar el NMT máximo para cada un de las zonas de la ciudad</p>
         
         {(() => {
           const maxNMTByName = getMaxNMTByName();
@@ -98,10 +102,13 @@ export default function AcusticaList() {
             />
           );
         })()}
-
+        <Grid container spacing={4} direction="row-reverse">
+            <Sidebar/>
+          </Grid>
       </main>
       </Container>
-      
+      <Footer
+      />
       </ThemeProvider>
     );
   }
