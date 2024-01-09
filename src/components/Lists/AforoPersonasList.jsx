@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import { Row, Col, Container, Badge, CardTitle } from "reactstrap";
+import { Container} from "reactstrap";
 import { getAllAforoPersonas } from "../../utils/apicalls";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Footer from '../blog/Footer';

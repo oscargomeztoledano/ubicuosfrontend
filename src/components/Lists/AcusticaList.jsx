@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import { Row, Col, Container, Badge, CardTitle } from "reactstrap";
+import { Container} from "reactstrap";
 import { getAllContaminacionAcustica } from "../../utils/apicalls";
 import Header from "../blog/Header"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
