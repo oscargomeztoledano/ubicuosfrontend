@@ -3,7 +3,9 @@ import { Container} from "reactstrap";
 import { getAllContenedores } from "../../utils/apicalls";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Scatter } from "react-chartjs-2";
-
+import Footer from '../blog/Footer';
+import Sidebar from "../blog/Sidebar";
+import Grid from '@mui/material/Grid';
 import Header from "../blog/Header"
 
 export default function ContenedoresList() {
@@ -69,9 +71,13 @@ export default function ContenedoresList() {
          <h1>Localización de los contenedores</h1>
          <p>En el siguiente gráfico podemos observar la localización de los contenedores mediante un grafico de dispersión</p>
          <Scatter data={chartData} options={chartOptions} />
-
+         <Grid container spacing={4} direction="row-reverse">
+            <Sidebar/>
+          </Grid>
        </main>
        </Container>
+       <Footer
+        />
 
        </ThemeProvider>
      );

@@ -3,7 +3,9 @@ import { Container} from "reactstrap";
 import { getAllInstalacionesFotovoltaicas } from "../../utils/apicalls";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Scatter } from "react-chartjs-2";
-
+import Footer from '../blog/Footer';
+import Sidebar from "../blog/Sidebar";
+import Grid from '@mui/material/Grid';
 import Header from "../blog/Header"
 
 export default function FotovoltaicasList() {
@@ -73,9 +75,14 @@ export default function FotovoltaicasList() {
          <h1>información sobre las placas fotovoltaicas</h1>
          <p>En el siguiente gráfico de dispersión tenemos la información de las coordenadas de las diferentes placas fotovoltaicas instaladas en la ciudad.</p> 
          <Scatter data={chartData} options={chartOptions} />
-          </main>
-          </Container>
+         <Grid container spacing={4} direction="row-reverse">
+            <Sidebar/>
+          </Grid>
+        </main>
+        </Container>
+        <Footer
+        />
+        </ThemeProvider>
+      );
+}
     
-          </ThemeProvider>
-        );
-    }
