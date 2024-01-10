@@ -26,12 +26,13 @@ const marker_gris = createMarkerIcon('marker_gris.png');
 const marker_marron = createMarkerIcon('marker_marron.png');
 
 const distritos = ['ARGANZUELA', 'BARAJAS', 'CARABANCHEL', 'CENTRO', 'CHAMARTIN', 'CHAMBERI', 'CIUDAD-LINEAL', 'HORTALEZA', 'LATINA', 'MONCLOA-ARAVACA', 'MORATALAZ', 'RETIRO', 'SALAMANCA', 'SAN BLAS-CANILLEJAS', 'TETUAN', 'USERA', 'VICALVARO', 'VILLAVERDE'];
-{/* Distritos defectuosos: 'FUENCARRAL-EL PARDO, 'VILLA DE VALLECAS', 'PUENTE DE VALLECAS'*/}
+/* Distritos defectuosos: 'FUENCARRAL-EL PARDO, 'VILLA DE VALLECAS', 'PUENTE DE VALLECAS'*/
 
 export default function ContenedoresList() {
   const [contenedores, setContenedores] = useState([]);
   const [contenedoresPorTipo, setContenedoresPorTipo] = useState({});
   const [contenedoresPorDistrito, setContenedoresPorDistrito] = useState({});
+  const [selectedDistrict, setSelectedDistrict] = useState([]);
 
   const getcontenedores = async () => {
     const data = await getAllContenedores();
@@ -62,9 +63,6 @@ export default function ContenedoresList() {
     return sinPuntos.slice(0, 2) + '.' + sinPuntos.slice(2);
   };
 
-  const [selectedDistrict, setSelectedDistrict] = useState([]);
-  const [index, setIndex] = useState(0);
-
   useEffect(() => {
     getcontenedores();
   }, []);
@@ -86,6 +84,7 @@ export default function ContenedoresList() {
           icon={icon}
         />
       ))
+
   );
 
   const posi = [40.416775, -3.70379];
@@ -156,7 +155,7 @@ export default function ContenedoresList() {
             <LayersControl.BaseLayer checked name="OpenStreetMap">
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             </LayersControl.BaseLayer>
-            {/* Aquí puedes agregar tus capas de superposición */}
+
             <LayersControl.Overlay name='ENVASES'>
               <LayerGroup>
                 {renderMarkers('ENVASES', marker_amarillo)}
