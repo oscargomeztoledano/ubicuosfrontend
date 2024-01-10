@@ -1,0 +1,19 @@
+.map {
+  height: 50vh;
+  width: 100%;
+}
+
+.btn {
+  padding: 8px 24px;
+  margin: 4px;
+  border: 1px solid #ccc;
+  background-color: #d54731;
+  cursor: pointer;
+}
+
+/* Estilos para resaltar el botón seleccionado */
+.btn-selected {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
