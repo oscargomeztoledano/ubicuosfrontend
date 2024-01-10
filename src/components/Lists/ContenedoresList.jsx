@@ -4,7 +4,9 @@ import { getAllContenedores } from "../../utils/apicalls";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { MapContainer, TileLayer, Marker, Popup, LayersControl, LayerGroup } from 'react-leaflet';
 import L from 'leaflet';
-
+import Footer from '../blog/Footer';
+import Sidebar from "../blog/Sidebar";
+import Grid from '@mui/material/Grid';
 
 import Header from "../blog/Header"
 import '../../styles/map.css';
@@ -139,18 +141,7 @@ export default function ContenedoresList() {
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={posi} icon={marker_azul}>
-            <Popup>
-              {Object.keys(contenedoresPorTipo).length > 0 ? (
-                <div>{`Contenedores: ${contenedores[1]['LATITUD']}`},
-                  {Object.keys(contenedoresPorDistrito).map((tipo, index) => (
-                    <div key={index}>{tipo}</div>
-                  ))}</div>
-              ) : (
-                'Cargando...'
-              )}
-            </Popup>
-          </Marker>
+          
 
           <LayersControl position="topright">
             <LayersControl.BaseLayer checked name="OpenStreetMap">
@@ -188,9 +179,14 @@ export default function ContenedoresList() {
             </LayersControl.Overlay>
 
           </LayersControl>
+          
         </MapContainer>
+        <Grid container spacing={4} direction="row-reverse">
+            <Sidebar/>
+          </Grid>
+      <Footer />
       </Container>
-
+      
     </ThemeProvider>
   );
 

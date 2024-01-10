@@ -33,7 +33,7 @@ function Footer() {
           color="text.secondary"
           component="p"
         >
-          {'Trabajo realizado por oscar, ivan y alvaro para la asignatura de sistemas de información ubicuos'}
+          {'Trabajo realizado por Óscar Gómez, Iván del Pino y Álvaro Ávila para la asignatura de sistemas de información ubicuos'}
         </Typography>
         <Copyright />
       </Container>

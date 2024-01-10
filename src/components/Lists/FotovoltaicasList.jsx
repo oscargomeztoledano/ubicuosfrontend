@@ -72,7 +72,7 @@ export default function FotovoltaicasList() {
        <Container maxWidth="lg">
        <Header/>
        <main>
-         <h1>información sobre las placas fotovoltaicas</h1>
+         <h1>Información sobre las placas fotovoltaicas</h1>
          <p>En el siguiente gráfico de dispersión tenemos la información de las coordenadas de las diferentes placas fotovoltaicas instaladas en la ciudad.</p> 
          <Scatter data={chartData} options={chartOptions} />
          <Grid container spacing={4} direction="row-reverse">
