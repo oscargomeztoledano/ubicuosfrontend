@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { MapContainer, TileLayer, Marker, Popup, LayersControl, LayerGroup } from 'react-leaflet';
 import L from 'leaflet';
 
+
 import Header from "../blog/Header"
 import '../../styles/map.css';
 import 'leaflet/dist/leaflet.css';
@@ -192,4 +193,5 @@ export default function ContenedoresList() {
 
     </ThemeProvider>
   );
+
 }

@@ -9,8 +9,9 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" target="_blank"
+          rel="noopener noreferrer" href="https://campusvirtual.uclm.es/login/index.php">
+        nuestra web
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -18,14 +19,13 @@ function Copyright() {
   );
 }
 
-function Footer(props) {
-  const { description, title } = props;
+function Footer() {
 
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom>
-          {title}
+          {'Sistemas de información ubicuos'}
         </Typography>
         <Typography
           variant="subtitle1"
@@ -33,7 +33,7 @@ function Footer(props) {
           color="text.secondary"
           component="p"
         >
-          {description}
+          {'Trabajo realizado por oscar, ivan y alvaro para la asignatura de sistemas de información ubicuos'}
         </Typography>
         <Copyright />
       </Container>
@@ -41,9 +41,6 @@ function Footer(props) {
   );
 }
 
-Footer.propTypes = {
-  description: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
+
 
 export default Footer;
